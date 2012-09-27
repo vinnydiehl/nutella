@@ -13,6 +13,16 @@ Install with RubyGems:
 gem install nutella
 ```
 
+## Contributing
+
+This library is my own little collection of core extensions that I like to use,
+and I add things as they are useful to me. I cannot guarantee that you will
+find it useful as I do.
+
+That being said, I welcome any contributions. Feel free to send a pull request
+if you feel that you have a feature that is useful, and definitely let me know
+if you find any bugs.
+
 ## License
 
 ```nutella``` is released under the MIT license.
