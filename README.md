@@ -27,6 +27,7 @@ if you find any bugs.
 
 ```nutella``` is released under the MIT license.
 
+```
 Copyright (C) 2012 Vinny Diehl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -46,6 +47,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
 
 See [the official page on OSI](http://opensource.org/licenses/MIT) for more
 information.
