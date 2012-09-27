@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = %w[lib]
   gem.test_files = Dir["spec/**/*"]
   gem.files = Dir["lib/**/*"] + gem.test_files + %w[
-    LICENSE Rakefile README.md nutella.gemspec
+    .rspec LICENSE Rakefile README.md nutella.gemspec
   ]
 
   gem.required_ruby_version = ">= 1.9.2"
