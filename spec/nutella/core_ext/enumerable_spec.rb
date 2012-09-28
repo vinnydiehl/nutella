@@ -18,6 +18,56 @@ describe Enumerable do
     end
   end
 
+  describe "#group" do
+    it "should group elements" do
+      [].group(2).should == []
+      [1, 2].group(2).should == [[1, 2]]
+      (1..4).group(2).should == [[1, 2], [3, 4]]
+      (1..9).group(3).should == [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    end
+
+    it "should put all excess into the last group" do
+      [1, 2].group(4).should == [[1, 2]]
+      (1..8).group(3).should == [[1, 2, 3], [4, 5, 6], [7, 8]]
+    end
+
+    it "should discard all excess if instructed to" do
+      (1..3).group(2, true).should == [[1, 2]]
+      (1..8).group(3, true).should == [[1, 2, 3], [4, 5, 6]]
+    end
+
+    it "should not discard anything if there is no excess" do
+      (1..4).group(2, true).should == [[1, 2], [3, 4]]
+    end
+
+    it "should not modify in place" do
+      arr = (1..10).to_a
+      arr.group 2
+      arr.should == (1..10).to_a
+    end
+  end
+
+  describe "#group!" do
+    arr = []
+
+    before { arr = (1..10).to_a }
+
+    it "should modify in place" do
+      arr.group! 2
+      arr.should == (1..10).group(2)
+    end
+
+    it "should return the modified string" do
+      return_catcher = arr.group! 2
+      return_catcher.should == arr
+    end
+
+    it "should return nil if nothing was modified" do
+      return_catcher = [].group! 2
+      return_catcher.should be_nil
+    end
+  end
+
   describe "#sum" do
     it "should return the sum of elements" do
       [].sum.should == 0
