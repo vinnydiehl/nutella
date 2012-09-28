@@ -1,4 +1,4 @@
-# Nutella [![Build Status](https://secure.travis-ci.org/gbchaosmaster/nutella.png)](http://travis-ci.org/gbchaosmaster/nutella)
+# Nutella [![Build Status](https://secure.travis-ci.org/gbchaosmaster/nutella.png)](http://travis-ci.org/gbchaosmaster/nutella) [![Dependency Status](https://gemnasium.com/gbchaosmaster/nutella.png)](https://gemnasium.com/gbchaosmaster/nutella) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/gbchaosmaster/nutella)
 
 This library is my personal collection of Ruby utilities, mainly core
 extensions. It is similar to
