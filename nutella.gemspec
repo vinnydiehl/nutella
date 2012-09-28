@@ -21,5 +21,6 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = ">= 1.9.2"
   gem.add_development_dependency "rake"
+  gem.add_development_dependency "rdoc", ">= 2.4.2"
   gem.add_development_dependency "rspec"
 end
