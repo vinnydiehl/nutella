@@ -13,6 +13,17 @@ class String
 
   # Left-aligns a heredoc by finding the lest indented line in the string, and
   # removing that amount of leading whitespace.
+  #
+  # For example, the following would print the contents of the heredoc as
+  # described for each line.
+  #
+  #   puts <<-EOS.heredoc
+  #     This line would be left-aligned.
+  #     This line too.
+  #         This line would be indented by four spaces.
+  #         As well as this line.
+  #     And back to left-aligned.
+  #   EOS
   def heredoc
     gsub /^[ \t]{#{scan(/^[ \t]*(?=\S)/).min.size}}/, ""
   end
