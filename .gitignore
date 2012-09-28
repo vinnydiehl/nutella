@@ -12,6 +12,9 @@ test/tmp
 test/version_tmp
 tmp
 
+# Generated Documentation
+doc/
+
 # Ignore Gemfile.lock for gems
 Gemfile.lock
 
