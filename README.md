@@ -26,7 +26,7 @@ without your code, and pass with your code.
 
 ## License
 
-Nutella is released under the MIT license. See
-[this project's LICENSE file](LICENSE) and
+Nutella is released under the MIT license. See the LICENSE file included with
+this code or
 [the official page on OSI](http://opensource.org/licenses/MIT) for more
 information.
