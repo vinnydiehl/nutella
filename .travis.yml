@@ -4,4 +4,6 @@ rvm:
   - 1.9.2
   - rbx-19mode
   - jruby-19mode
-script: bundle exec rake
+script:
+  - bundle exec rake test
+  - bundle exec rake doc

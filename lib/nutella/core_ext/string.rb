@@ -4,19 +4,19 @@ class String
 
   alias_method :each, :each_char
 
-  # The inverse of <tt>String#include?</tt>. Returns +true+ if the string does
-  # not contain +str+.
+  # The inverse of <tt>String#include?</tt>.
+  #
+  # @param [String] str the string to test for exclusion
+  # @return [Boolean] whether or not the string excludes the substring +str+
   def exclude?(str)
     !include? str
   end
   alias_method :excludes?, :exclude?
 
-  # Left-aligns a heredoc by finding the lest indented line in the string, and
-  # removing that amount of leading whitespace.
+  # Left-aligns a heredoc by finding the least indented line in the string, and
+  # removing that amount of leading whitespace from each line.
   #
-  # For example, the following would print the contents of the heredoc as
-  # described for each line.
-  #
+  # @example Prints the contents of the heredoc as described on each line
   #   puts <<-EOS.heredoc
   #     This line would be left-aligned.
   #     This line too.
@@ -24,6 +24,8 @@ class String
   #         As well as this line.
   #     And back to left-aligned.
   #   EOS
+  #
+  # @return [String] the string with excess leading whitespace stripped
   def heredoc
     gsub /^[ \t]{#{scan(/^[ \t]*(?=\S)/).min.size}}/, ""
   end
