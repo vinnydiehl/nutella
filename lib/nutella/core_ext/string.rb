@@ -6,7 +6,7 @@ class String
 
   # The inverse of <tt>String#include?</tt>. Returns +true+ if the string does
   # not contain +str+.
-  def exclude? str
+  def exclude?(str)
     !include? str
   end
   alias_method :excludes?, :exclude?
