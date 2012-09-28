@@ -27,7 +27,7 @@ module Enumerable
   # @return [Array] an array of the groups
   def group(size, discard_excess = false)
     groups = each_slice(size).to_a
-    discard_excess && groups.last.size < size ? groups[0..-2] : groups
+    groups[0..(discard_excess && groups.last.size < size ? -2 : -1)]
   end
 
   # Modifies the collection in place as described for
