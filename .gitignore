@@ -12,15 +12,13 @@ test/tmp/
 test/version_tmp/
 tmp/
 
-# Generated Documentation
-doc/
-
 # Ignore Gemfile.lock for gems
 Gemfile.lock
 
 # YARD Artifacts
 .yardoc
 _yardoc
+doc/
 
 # Temporary Files
 .*.sw[a-z]
