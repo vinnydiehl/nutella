@@ -5,6 +5,8 @@ extensions. It is similar to
 [Active Support](https://github.com/rails/rails/tree/master/activesupport),
 but lighter.
 
+ * [RubyGems](https://rubygems.org/gems/nutella)
+
 ## Installation
 
 Install with RubyGems:
