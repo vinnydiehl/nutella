@@ -3,7 +3,8 @@
 This library is my personal collection of Ruby utilities, mainly core
 extensions.
 
- * [RubyGems](https://rubygems.org/gems/nutella)
+ * [RubyGems Release Page](https://rubygems.org/gems/nutella)
+ * [Documentation on RubyDoc](http://rubydoc.info/github/gbchaosmaster/nutella/master/frames)
 
 ## Installation
 
