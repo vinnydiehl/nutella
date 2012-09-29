@@ -1,4 +1,4 @@
 module Nutella
   # The current version of Nutella.
-  VERSION = "0.1"
+  VERSION = "0.2"
 end
