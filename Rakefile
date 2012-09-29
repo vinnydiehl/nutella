@@ -14,4 +14,5 @@ YARD::Rake::YardocTask.new do |doc|
 end
 task doc: :yard
 
+task dist: :build
 task default: :spec
