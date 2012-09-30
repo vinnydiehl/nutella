@@ -7,6 +7,65 @@ describe Integer do
     test_alias Integer, :divisible_by_any?, :multiple_of_any?
   end
 
+  describe "#goes_into?" do
+    it "should return true if the number goes evenly into the argument" do
+      5.goes_into?(10).should be_true
+      3.goes_into?(21).should be_true
+      25.goes_into?(100).should be_true
+    end
+
+    it "should return false if the number does not go evenly in" do
+      3.goes_into?(10).should be_false
+      9.goes_into?(40).should be_false
+      10.goes_into?(5).should be_false
+    end
+
+    context "when passing in zero" do
+      it "should return false if one tries to divide by zero" do
+        0.goes_into?(20).should be_false
+        0.goes_into?(30).should be_false
+      end
+
+      it "should allow zero to go into zero" do
+        0.goes_into?(0).should be_true
+      end
+    end
+
+    context "with multiple arguments" do
+      it "should return true if all arguments succeed" do
+        5.goes_into?(10, 15, 50).should be_true
+        2.goes_into?(2, 4, 10).should be_true
+      end
+
+      it "should return false if only some arguments succeed" do
+        5.goes_into?(10, 12, 15).should be_false
+        8.goes_into?(4, 16).should be_false
+      end
+
+      it "should return false if no arguments succeed" do
+        3.goes_into?(8, 16, 20).should be_false
+        6.goes_into?(5, 10, 15).should be_false
+      end
+    end
+  end
+
+  describe "#goes_into_any?" do
+    it "should return true if all arguments succeed" do
+      5.goes_into_any?(10, 15, 50).should be_true
+      2.goes_into_any?(2, 4, 10).should be_true
+    end
+
+    it "should return true if only some arguments succeed" do
+      5.goes_into_any?(10, 12, 15).should be_true
+      8.goes_into_any?(4, 16).should be_true
+    end
+
+    it "should return false if no arguments succeed" do
+      3.goes_into_any?(8, 16, 20).should be_false
+      6.goes_into_any?(5, 10, 15).should be_false
+    end
+  end
+
   describe "#multiple_of?" do
     it "should return true if the number is evenly divisible" do
       5.multiple_of?(5).should be_true
