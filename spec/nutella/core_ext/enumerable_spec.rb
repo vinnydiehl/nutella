@@ -73,6 +73,7 @@ describe Enumerable do
       [].sum.should == 0
       [5].sum.should == 5
       [1, 2, 3].sum.should == 6
+      (1..4).sum.should == 10
     end
 
     it "should flatten the elements before adding" do
@@ -84,6 +85,18 @@ describe Enumerable do
       { a: 2, b: 4 }.sum.should == 6
       [1, "str", 4].sum.should == 5
       ["no numbers"].sum.should == 0
+    end
+
+    context "with a block" do
+      it "should return the sum of the elements that pass the filter block" do
+        (1..10).sum(&:even?).should == 30
+        (1..10).sum { |n| n % 3 == 0 }.should == 18
+      end
+
+      it "should still filter out all non-numbers" do
+        { a: 1, b: 2, c: 3 }.sum(&:odd?).should == 4
+        [2, "str", 4, 7].sum(&:even?).should == 6
+      end
     end
   end
 end

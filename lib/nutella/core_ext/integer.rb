@@ -20,7 +20,7 @@ class Integer
   # Check whether the integer is evenly divisible by any of the arguments.
   #
   # @example {Project Euler #1}[http://projecteuler.net/problem=1] solution using Nutella
-  #   (1...1000).select { |n| n.multiple_of_any?(3, 5) }.sum
+  #   (1...1000).sum { |n| n.multiple_of_any?(3, 5) }
   #
   # @param [*Integer] nums the integer(s) to check against
   # @return [Boolean] whether or not the integer is evenly divisible by any
