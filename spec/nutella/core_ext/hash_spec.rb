@@ -2,14 +2,14 @@ require "spec_helper"
 require "nutella/core_ext/hash"
 
 describe Hash do
+  let(:hash) { { a: 1, b: 2, c: 3, d: 4 } }
+
   describe "aliases" do
     test_alias Hash, :slice, :grab
     test_alias Hash, :slice!, :grab!
   end
 
   describe "#grab" do
-    let(:hash) { { a: 1, b: 2, c: 3, d: 4 } }
-
     it "should select the given items from a hash" do
       hash.slice(:a, :c).should == { a: 1, c: 3 }
     end
@@ -26,8 +26,6 @@ describe Hash do
   end
 
   describe "#grab!" do
-    let(:hash) { { a: 1, b: 2, c: 3, d: 4 } }
-
     it "should modify in place" do
       hash.slice! :a, :c
       hash.should == { a: 1, c: 3 }
