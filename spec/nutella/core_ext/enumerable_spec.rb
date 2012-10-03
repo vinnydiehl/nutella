@@ -48,9 +48,7 @@ describe Enumerable do
   end
 
   describe "#group!" do
-    arr = []
-
-    before { arr = (1..10).to_a }
+    let(:arr) { (1..10).to_a }
 
     it "should modify in place" do
       arr.group! 2

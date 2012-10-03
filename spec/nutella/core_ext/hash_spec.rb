@@ -8,9 +8,7 @@ describe Hash do
   end
 
   describe "#grab" do
-    hash = {}
-
-    before { hash = { a: 1, b: 2, c: 3, d: 4 } }
+    let(:hash) { { a: 1, b: 2, c: 3, d: 4 } }
 
     it "should select the given items from a hash" do
       hash.slice(:a, :c).should == { a: 1, c: 3 }
@@ -28,9 +26,7 @@ describe Hash do
   end
 
   describe "#grab!" do
-    hash = {}
-
-    before { hash = { a: 1, b: 2, c: 3, d: 4 } }
+    let(:hash) { { a: 1, b: 2, c: 3, d: 4 } }
 
     it "should modify in place" do
       hash.slice! :a, :c

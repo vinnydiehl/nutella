@@ -26,8 +26,7 @@ describe Enumerable do
   describe "#heredoc" do
     test = expected = ""
 
-    before do
-      test = <<-EOS.heredoc
+    let(:test) do <<-EOS.heredoc
         This is a test of String#heredoc.
         This text should be left-aligned.
             This text is indented by four spaces.
@@ -36,8 +35,9 @@ describe Enumerable do
          now one space...
         Left-aligned again.
       EOS
+    end
 
-      expected = <<EOS
+    let(:expected) do <<EOS
 This is a test of String#heredoc.
 This text should be left-aligned.
     This text is indented by four spaces.
