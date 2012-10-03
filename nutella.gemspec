@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
     .rspec LICENSE Rakefile README.md nutella.gemspec
   ]
 
-  gem.required_ruby_version = ">= 1.9.2"
+  gem.required_ruby_version = "~> 1.9"
   gem.add_development_dependency "rake", "~> 0.9"
   gem.add_development_dependency "redcarpet", "~> 2.1"
   gem.add_development_dependency "rdoc", "~> 3.0"
