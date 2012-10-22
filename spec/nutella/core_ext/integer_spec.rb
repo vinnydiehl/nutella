@@ -8,7 +8,7 @@ describe Integer do
   end
 
   describe "#ordinalize" do
-    it "should return the cardinal form of a given integer" do
+    it "should return the ordinal form of the integer" do
       NUMBER_FORMATS.each do |cardinal, ordinal|
         cardinal.ordinalize.should == ordinal
       end
