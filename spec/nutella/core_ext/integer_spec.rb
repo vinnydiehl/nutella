@@ -7,6 +7,14 @@ describe Integer do
     test_alias Integer, :divisible_by_any?, :multiple_of_any?
   end
 
+  describe "#ordinalize" do
+    it "should return the cardinal form of a given integer" do
+      NUMBER_FORMATS.each do |cardinal, ordinal|
+        cardinal.ordinalize.should == ordinal
+      end
+    end
+  end
+
   describe "#goes_into?" do
     it "should return true if the number goes evenly into the argument" do
       5.goes_into?(10).should be_true
