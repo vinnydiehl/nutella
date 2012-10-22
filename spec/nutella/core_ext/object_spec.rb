@@ -2,6 +2,10 @@ require "spec_helper"
 require "nutella/core_ext/object"
 
 describe Object do
+  describe "aliases" do
+    test_alias Object, :is_an?, :is_a?
+  end
+
   describe "#blank?" do
     it "should be blank when nil" do
       nil.blank?.should be_true
