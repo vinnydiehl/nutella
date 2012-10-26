@@ -14,11 +14,11 @@ describe Enumerable do
   end
 
   describe "#exclude?" do
-    it "should return true if the string does not contain the input string" do
+    it "returns true if the string does not contain the input string" do
       "hello".exclude?("test").should be_true
     end
 
-    it "should return false if the string contains the input string" do
+    it "returns false if the string contains the input string" do
       "hello".exclude?("llo").should be_false
     end
   end
@@ -48,7 +48,7 @@ Left-aligned again.
 EOS
     end
 
-    it "should strip all excess whitespace from the left" do
+    it "strips all excess whitespace from the left" do
       test.should == expected
     end
   end

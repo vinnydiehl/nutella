@@ -10,15 +10,15 @@ describe Hash do
   end
 
   describe "#grab" do
-    it "should select the given items from a hash" do
+    it "selects the given items from a hash" do
       hash.slice(:a, :c).should == { a: 1, c: 3 }
     end
 
-    it "should skip items that do not exist in the hash" do
+    it "skips items that do not exist in the hash" do
       hash.slice(:a, :d, :f).should == { a: 1, d: 4 }
     end
 
-    it "should not modify in place" do
+    it "does not modify in place" do
       start = hash
       hash.slice :a, :b
       hash.should == start
@@ -26,16 +26,16 @@ describe Hash do
   end
 
   describe "#grab!" do
-    it "should modify in place" do
+    it "modifies in place" do
       hash.slice! :a, :c
       hash.should == { a: 1, c: 3 }
     end
 
-    it "should return the removed pairs" do
+    it "returns the removed pairs" do
       hash.slice!(:a, :c).should == { b: 2, d: 4 }
     end
 
-    it "should ignore pairs that did not affect the hash" do
+    it "ignores pairs that did not affect the hash" do
       hash.slice!(:a, :c, :g).should == { b: 2, d: 4 }
       hash.should == { a: 1, c: 3 }
     end

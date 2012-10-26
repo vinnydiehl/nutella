@@ -8,7 +8,7 @@ describe Integer do
   end
 
   describe "#ordinalize" do
-    it "should return the ordinal form of the integer" do
+    it "returns the ordinal form of the integer" do
       NUMBER_FORMATS.each do |cardinal, ordinal|
         cardinal.ordinalize.should == ordinal
       end
@@ -16,41 +16,41 @@ describe Integer do
   end
 
   describe "#goes_into?" do
-    it "should return true if the number goes evenly into the argument" do
+    it "returns true if the number goes evenly into the argument" do
       5.goes_into?(10).should be_true
       3.goes_into?(21).should be_true
       25.goes_into?(100).should be_true
     end
 
-    it "should return false if the number does not go evenly in" do
+    it "returns false if the number does not go evenly in" do
       3.goes_into?(10).should be_false
       9.goes_into?(40).should be_false
       10.goes_into?(5).should be_false
     end
 
     context "when passing in zero" do
-      it "should return false if one tries to divide by zero" do
+      it "returns false if one tries to divide by zero" do
         0.goes_into?(20).should be_false
         0.goes_into?(30).should be_false
       end
 
-      it "should allow zero to go into zero" do
+      it "allows zero to go into zero" do
         0.goes_into?(0).should be_true
       end
     end
 
     context "with multiple arguments" do
-      it "should return true if all arguments succeed" do
+      it "returns true if all arguments succeed" do
         5.goes_into?(10, 15, 50).should be_true
         2.goes_into?(2, 4, 10).should be_true
       end
 
-      it "should return false if only some arguments succeed" do
+      it "returns false if only some arguments succeed" do
         5.goes_into?(10, 12, 15).should be_false
         8.goes_into?(4, 16).should be_false
       end
 
-      it "should return false if no arguments succeed" do
+      it "returns false if no arguments succeed" do
         3.goes_into?(8, 16, 20).should be_false
         6.goes_into?(5, 10, 15).should be_false
       end
@@ -58,31 +58,31 @@ describe Integer do
   end
 
   describe "#goes_into_any?" do
-    it "should return true if all arguments succeed" do
+    it "returns true if all arguments succeed" do
       5.goes_into_any?(10, 15, 50).should be_true
       2.goes_into_any?(2, 4, 10).should be_true
     end
 
-    it "should return true if only some arguments succeed" do
+    it "returns true if only some arguments succeed" do
       5.goes_into_any?(10, 12, 15).should be_true
       8.goes_into_any?(4, 16).should be_true
     end
 
-    it "should return false if no arguments succeed" do
+    it "returns false if no arguments succeed" do
       3.goes_into_any?(8, 16, 20).should be_false
       6.goes_into_any?(5, 10, 15).should be_false
     end
   end
 
   describe "#multiple_of?" do
-    it "should return true if the number is evenly divisible" do
+    it "returns true if the number is evenly divisible" do
       5.multiple_of?(5).should be_true
       15.multiple_of?(5).should be_true
       10.multiple_of?(2).should be_true
       6000.multiple_of?(6).should be_true
     end
 
-    it "should return false if the number is not evenly divisible" do
+    it "returns false if the number is not evenly divisible" do
       20.multiple_of?(7).should be_false
       4.multiple_of?(3).should be_false
       5.multiple_of?(15).should be_false
@@ -90,30 +90,30 @@ describe Integer do
     end
 
     context "when passing in zero" do
-      it "should return false if one tries to divide by zero" do
+      it "returns false if one tries to divide by zero" do
         20.multiple_of?(0).should be_false
         30.multiple_of?(0).should be_false
       end
 
-      it "should allow zero to go into zero" do
+      it "allows zero to go into zero" do
         0.multiple_of?(0).should be_true
       end
     end
 
     context "with multiple arguments" do
-      it "should return true if evenly divisible by all arguments" do
+      it "returns true if evenly divisible by all arguments" do
         15.multiple_of?(3, 15).should be_true
         100.multiple_of?(2, 5, 25).should be_true
         0.multiple_of?(0, 1, 2).should be_true
       end
 
-      it "should return false if evenly divisible by only some arguments" do
+      it "returns false if evenly divisible by only some arguments" do
         15.multiple_of?(2, 3).should be_false
         12.multiple_of?(3, 4, 6, 8).should be_false
         10.multiple_of?(0, 5).should be_false
       end
 
-      it "should return false if evenly divisible by none of the arguments" do
+      it "returns false if evenly divisible by none of the arguments" do
         6.multiple_of?(4, 5).should be_false
         17.multiple_of?(2, 4).should be_false
       end
@@ -121,19 +121,19 @@ describe Integer do
   end
 
   describe "#multiple_of_any?" do
-    it "should return true if evenly divisible by all arguments" do
+    it "returns true if evenly divisible by all arguments" do
       15.multiple_of_any?(3, 15).should be_true
       100.multiple_of_any?(2, 5, 25).should be_true
       0.multiple_of_any?(0, 1, 2).should be_true
     end
 
-    it "should return true if evenly divisible by only some arguments" do
+    it "returns true if evenly divisible by only some arguments" do
       15.multiple_of_any?(2, 3).should be_true
       12.multiple_of_any?(3, 4, 6, 8).should be_true
       10.multiple_of_any?(0, 5).should be_true
     end
 
-    it "should return false if evenly divisible by none of the arguments" do
+    it "returns false if evenly divisible by none of the arguments" do
       6.multiple_of_any?(4, 5).should be_false
       17.multiple_of_any?(2, 4).should be_false
     end
