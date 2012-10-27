@@ -24,6 +24,6 @@ module Enumerable
   # @param [*Object] args any extra arguments to use
   # @return [Array] a list of the return values of the method calls
   def apply(method, *args)
-    map { |elem| send method.to_sym, *elem, *args }
+    map { |elem| send method, *elem, *args }
   end
 end
