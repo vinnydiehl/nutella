@@ -8,6 +8,49 @@ describe Enumerable do
     test_alias Enumerable, :excludes?, :exclude?
   end
 
+  describe "#apply" do
+    let(:testers) do
+      5.times.map { ApplyTester.new(5) }
+    end
+
+    it "works for a function that takes one argument" do
+      testers.apply :increment_value
+      testers.map(&:value).should == [6] * 5
+    end
+
+    context "with a function that takes two arguments" do
+      it "allows multi-dimensional arrays" do
+        multi = testers.zip([2] * 5)
+        multi.apply :increment_value
+        multi.each { |arr| arr.first.value.should == 7 }
+      end
+
+      it "allows multiple arguments" do
+        testers.apply :increment_value, 2
+        testers.map(&:value).should == [7] * 5
+      end
+    end
+
+    context "with a function that takes many arguments" do
+      it "allows multi-dimensional arrays" do
+        multi = testers.map { |elem| [elem, 2, 2] }
+        multi.apply :increment_value
+        multi.each { |arr| arr.first.value.should == 9 }
+      end
+
+      it "allows multiple arguments" do
+        testers.apply :increment_value, 2, 2
+        testers.map(&:value).should == [9] * 5
+      end
+
+      it "allows multi-dimensional arrays with multiple arguments" do
+        multi = testers.zip([2] * 5)
+        multi.apply :increment_value, 2
+        multi.each { |arr| arr.first.value.should == 9 }
+      end
+    end
+  end
+
   describe "#exclude?" do
     it "returns true if the collection does not contain the input" do
       [1, 2, 3].exclude?(4).should be_true
