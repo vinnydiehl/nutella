@@ -76,27 +76,27 @@ describe Integer do
 
   describe "#multiple_of?" do
     it "returns true if the number is evenly divisible" do
-      5.multiple_of?(5).should be_true
-      15.multiple_of?(5).should be_true
-      10.multiple_of?(2).should be_true
-      6000.multiple_of?(6).should be_true
+      5.should be_multiple_of(5)
+      15.should be_multiple_of(5)
+      10.should be_multiple_of(2)
+      6000.should be_multiple_of(6)
     end
 
     it "returns false if the number is not evenly divisible" do
-      20.multiple_of?(7).should be_false
-      4.multiple_of?(3).should be_false
-      5.multiple_of?(15).should be_false
-      100.multiple_of?(3).should be_false
+      20.should_not be_multiple_of(7)
+      4.should_not be_multiple_of(3)
+      5.should_not be_multiple_of(15)
+      100.should_not be_multiple_of(3)
     end
 
     context "when passing in zero" do
       it "returns false if one tries to divide by zero" do
-        20.multiple_of?(0).should be_false
-        30.multiple_of?(0).should be_false
+        20.should_not be_multiple_of(0)
+        30.should_not be_multiple_of(0)
       end
 
       it "allows zero to go into zero" do
-        0.multiple_of?(0).should be_true
+        0.should be_multiple_of(0)
       end
     end
 
