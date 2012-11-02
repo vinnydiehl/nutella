@@ -8,8 +8,8 @@ describe Integer do
   end
 
   describe "#ordinalize" do
-    it "returns the ordinal form of the integer" do
-      NUMBER_FORMATS.each do |cardinal, ordinal|
+    NUMBER_FORMATS.each do |cardinal, ordinal|
+      it "returns the ordinal #{ordinal} for the integer #{cardinal}" do
         cardinal.ordinalize.should == ordinal
       end
     end
@@ -102,40 +102,40 @@ describe Integer do
 
     context "with multiple arguments" do
       it "returns true if evenly divisible by all arguments" do
-        15.multiple_of?(3, 15).should be_true
-        100.multiple_of?(2, 5, 25).should be_true
-        0.multiple_of?(0, 1, 2).should be_true
+        15.should be_multiple_of(3, 15)
+        100.should be_multiple_of(2, 5, 25)
+        0.should be_multiple_of(0, 1, 2)
       end
 
       it "returns false if evenly divisible by only some arguments" do
-        15.multiple_of?(2, 3).should be_false
-        12.multiple_of?(3, 4, 6, 8).should be_false
-        10.multiple_of?(0, 5).should be_false
+        15.should_not be_multiple_of(2, 3)
+        12.should_not be_multiple_of(3, 4, 6, 8)
+        10.should_not be_multiple_of(0, 5)
       end
 
       it "returns false if evenly divisible by none of the arguments" do
-        6.multiple_of?(4, 5).should be_false
-        17.multiple_of?(2, 4).should be_false
+        6.should_not be_multiple_of(4, 5)
+        17.should_not be_multiple_of(2, 4)
       end
     end
   end
 
   describe "#multiple_of_any?" do
     it "returns true if evenly divisible by all arguments" do
-      15.multiple_of_any?(3, 15).should be_true
-      100.multiple_of_any?(2, 5, 25).should be_true
-      0.multiple_of_any?(0, 1, 2).should be_true
+      15.should be_multiple_of_any(3, 15)
+      100.should be_multiple_of_any(2, 5, 25)
+      0.should be_multiple_of_any(0, 1, 2)
     end
 
     it "returns true if evenly divisible by only some arguments" do
-      15.multiple_of_any?(2, 3).should be_true
-      12.multiple_of_any?(3, 4, 6, 8).should be_true
-      10.multiple_of_any?(0, 5).should be_true
+      15.should be_multiple_of_any(2, 3)
+      12.should be_multiple_of_any(3, 4, 6, 8)
+      10.should be_multiple_of_any(0, 5)
     end
 
     it "returns false if evenly divisible by none of the arguments" do
-      6.multiple_of_any?(4, 5).should be_false
-      17.multiple_of_any?(2, 4).should be_false
+      6.should_not be_multiple_of_any(4, 5)
+      17.should_not be_multiple_of_any(2, 4)
     end
   end
 end

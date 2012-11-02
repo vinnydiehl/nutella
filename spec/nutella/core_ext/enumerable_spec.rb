@@ -94,18 +94,15 @@ describe Enumerable do
     let(:arr) { (1..10).to_a }
 
     it "modifies in place" do
-      arr.group! 2
-      arr.should == (1..10).group(2)
+      expect { arr.group! 2 }.to change { arr }.to (1..10).group(2)
     end
 
     it "returns the modified string" do
-      return_catcher = arr.group! 2
-      return_catcher.should == arr
+      arr.group!(2).should == arr
     end
 
     it "returns nil if nothing was modified" do
-      return_catcher = [].group! 2
-      return_catcher.should be_nil
+      [].group!(2).should be_nil
     end
   end
 
