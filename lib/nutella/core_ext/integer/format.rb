@@ -8,12 +8,8 @@ class Integer
   #
   # @return [String] the ordinal form of the integer
   def ordinalize
-    suffixes = { 1 => "st", 2 => "nd", 3 => "rd" }
-
-    self.to_s + if (11..13).include?(self.abs % 100)
-      "th"
-    elsif suffixes.keys.include? (last_digit = self.abs % 10)
-      suffixes[last_digit]
+    self.to_s + if abs % 100 / 10 != 1 && (1..3).include?(last = abs % 10)
+      {1 => "st", 2 => "nd", 3 => "rd"}[last]
     else
       "th"
     end
