@@ -1,8 +1,8 @@
 class String
-  alias_method :contains?, :include?
-  alias_method :includes?, :include?
+  alias contains? include?
+  alias includes? include?
 
-  alias_method :each, :each_char
+  alias each each_char
 
   # The inverse of <tt>String#include?</tt>.
   #
@@ -11,7 +11,7 @@ class String
   def exclude?(str)
     !include? str
   end
-  alias_method :excludes?, :exclude?
+  alias excludes? exclude?
 
   # Left-aligns a heredoc by finding the least indented line in the string, and
   # removing that amount of leading whitespace from each line.
@@ -29,6 +29,6 @@ class String
   def heredoc
     gsub /^[ \t]{#{scan(/^[ \t]*(?=\S)/).min.size}}/, ""
   end
-  alias_method :format_heredoc, :heredoc
-  alias_method :strip_heredoc, :heredoc
+  alias format_heredoc heredoc
+  alias strip_heredoc heredoc
 end

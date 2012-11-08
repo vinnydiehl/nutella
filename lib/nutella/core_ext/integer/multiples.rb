@@ -46,7 +46,7 @@ class Integer
   def multiple_of?(*nums)
     nums.all? { |n| (!n.zero? && self % n == 0) || zero? }
   end
-  alias_method :divisible_by?, :multiple_of?
+  alias divisible_by? multiple_of?
 
   # Checks whether the integer is evenly divisible by any of the arguments.
   #
@@ -59,5 +59,5 @@ class Integer
   def multiple_of_any?(*nums)
     nums.any? { |n| multiple_of? n }
   end
-  alias_method :divisible_by_any?, :multiple_of_any?
+  alias divisible_by_any? multiple_of_any?
 end

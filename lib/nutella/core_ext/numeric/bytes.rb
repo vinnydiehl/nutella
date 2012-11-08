@@ -9,35 +9,35 @@ class Numeric
   def bytes
     self
   end
-  alias_method :byte, :bytes
+  alias byte bytes
 
   def kilobytes
     self * KILOBYTE
   end
-  alias_method :kilobyte, :kilobytes
+  alias kilobyte kilobytes
 
   def megabytes
     self * MEGABYTE
   end
-  alias_method :megabyte, :megabytes
+  alias megabyte megabytes
 
   def gigabytes
     self * GIGABYTE
   end
-  alias_method :gigabyte, :gigabytes
+  alias gigabyte gigabytes
 
   def terabytes
     self * TERABYTE
   end
-  alias_method :terabyte, :terabytes
+  alias terabyte terabytes
 
   def petabytes
     self * PETABYTE
   end
-  alias_method :petabyte, :petabytes
+  alias petabyte petabytes
 
   def exabytes
     self * EXABYTE
   end
-  alias_method :exabyte, :exabytes
+  alias exabyte exabytes
 end

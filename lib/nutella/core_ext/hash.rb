@@ -20,7 +20,7 @@ class Hash
   def slice(*keys)
     select { |k, v| keys.include? k }
   end
-  alias_method :grab, :slice
+  alias grab slice
 
   # Acts on the hash as described in Hash#slice, but modifies the hash in
   # place.
@@ -38,5 +38,5 @@ class Hash
   end
   # #grab! doesn't sound quite semantically correct, but keeping it for the
   # sake of being consistent with #slice/#grab.
-  alias_method :grab!, :slice!
+  alias grab! slice!
 end

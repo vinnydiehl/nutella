@@ -1,6 +1,6 @@
 module Enumerable
-  alias_method :contains?, :include?
-  alias_method :includes?, :include?
+  alias contains? include?
+  alias includes? include?
 
   # The inverse of <tt>Enumerable#include?</tt>.
   #
@@ -9,5 +9,5 @@ module Enumerable
   def exclude?(object)
     !include? object
   end
-  alias_method :excludes?, :exclude?
+  alias excludes? exclude?
 end
