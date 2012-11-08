@@ -106,6 +106,32 @@ describe Enumerable do
     end
   end
 
+  describe "#map" do
+    it "takes a symbol and maps that method" do
+      [1, 2, 3].map(:succ).should == [2, 3, 4]
+      (1..10).map(:succ).should == (2..11).to_a
+    end
+
+    it "passes additional arguments into the method in the first argument" do
+      arr = %w[Alice Bob Charlie Dennis]
+      alpha = ("a".."z")
+      args = [/[aeiou]/, "x"]
+
+      arr.map(:gsub, *args).should == arr.map { |e| e.gsub *args }
+      alpha.map(:gsub, *args).should == alpha.map { |e| e.gsub *args }
+    end
+
+    context "when using as the original #map" do
+      it "doesn't break passing in blocks" do
+        [1, 2, 3].map { |n| n + 1 }.should == [2, 3, 4]
+      end
+
+      it "doesn't break when passing in Proc" do
+        [1, 2, 3].map(&:succ).should == [2, 3, 4]
+      end
+    end
+  end
+
   describe "#sum" do
     it "returns the sum of elements" do
       [].sum.should == 0
