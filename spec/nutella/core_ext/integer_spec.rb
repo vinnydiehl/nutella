@@ -7,6 +7,20 @@ describe Integer do
     test_alias Integer, :divisible_by_any?, :multiple_of_any?
   end
 
+  describe "#digits" do
+    it "returns an array of the digits in the integer" do
+      (0..9).each { |n| n.digits.should == [n] }
+      10.digits.should == [1, 0]
+      349.digits.should == [3, 4, 9]
+      1000.digits.should == [1, 0, 0, 0]
+    end
+
+    it "trims the '-' from negative numbers" do
+      -3.digits.should == [3]
+      -20.digits.should == [2, 0]
+    end
+  end
+
   describe "#ordinalize" do
     NUMBER_FORMATS.each do |cardinal, ordinal|
       it "returns the ordinal #{ordinal} for the integer #{cardinal}" do
