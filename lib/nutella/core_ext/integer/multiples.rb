@@ -1,5 +1,5 @@
 class Integer
-  # Checks whether the integer goes evenly into all of the arguments
+  # Checks whether the integer goes evenly into all of the arguments.
   #
   # @example Check if 3 goes into some numbers
   #   3.goes_into? 10  # => false
@@ -16,7 +16,7 @@ class Integer
     nums.all? { |n| (!zero? && n % self == 0) || n.zero? }
   end
 
-  # Checks whether the integer goes evenly into any of the arguments
+  # Checks whether the integer goes evenly into any of the arguments.
   #
   # @example Check if 5 goes into every number in some sets of numbers
   #   5.goes_into_any? 10, 20  # => true
