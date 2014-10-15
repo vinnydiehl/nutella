@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.version = Nutella::VERSION
 
   gem.author = "Vinny Diehl"
-  gem.email = "gbchaosmaster926@gmail.com"
+  gem.email = "vinny.diehl@gmail.com"
   gem.homepage = "https://github.com/gbchaosmaster/nutella"
 
   gem.license = "MIT"
@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
     .rspec LICENSE Rakefile README.md nutella.gemspec
   ]
 
-  gem.required_ruby_version = "~> 1.9"
+  gem.required_ruby_version = "~> 2.0"
   gem.add_development_dependency "fuubar", "~> 1.1"
   gem.add_development_dependency "rake", "~> 10.0"
   gem.add_development_dependency "redcarpet", "~> 2.2"
