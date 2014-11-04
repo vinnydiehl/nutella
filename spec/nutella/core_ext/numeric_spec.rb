@@ -11,57 +11,57 @@ describe Numeric do
 
   describe "#percent" do
     it "returns the percent for an integer" do
-      5.percent.should == 0.05
-      15.percent.should == 0.15
-      50.percent.should == 0.5
-      125.percent.should == 1.25
+      expect(5.percent).to eq(0.05)
+      expect(15.percent).to eq(0.15)
+      expect(50.percent).to eq(0.5)
+      expect(125.percent).to eq(1.25)
     end
 
     it "returns an integer for multiples of 100" do
-      100.percent.should == 1
-      500.percent.should == 5
+      expect(100.percent).to eq(1)
+      expect(500.percent).to eq(5)
     end
 
     it "returns the percent for a floating point" do
-      0.5.percent.should == 0.005
-      5.5.percent.should == 0.055
-      10.5.percent.should == 0.105
+      expect(0.5.percent).to eq(0.005)
+      expect(5.5.percent).to eq(0.055)
+      expect(10.5.percent).to eq(0.105)
     end
 
     it "returns an integer for floating point multiples of 100" do
-      100.0.percent.should == 1
+      expect(100.0.percent).to eq(1)
     end
 
     it "returns zero for 0" do
-      0.percent.should be_zero
+      expect(0.percent).to be_zero
     end
   end
 
   describe "#sanity_check_min" do
     it "returns the parameter if the number is lower" do
-      5.sanity_check_min(7).should == 7
+      expect(5.sanity_check_min(7)).to eq(7)
     end
 
     it "doesn't change anything if the number is equal" do
-      5.sanity_check_min(5).should == 5
+      expect(5.sanity_check_min(5)).to eq(5)
     end
 
     it "returns the number if the number is higher" do
-      5.sanity_check_min(2).should == 5
+      expect(5.sanity_check_min(2)).to eq(5)
     end
   end
 
   describe "#sanity_check_max" do
     it "returns the parameter if the number is higher" do
-      5.sanity_check_max(2).should == 2
+      expect(5.sanity_check_max(2)).to eq(2)
     end
 
     it "doesn't change anything if the number is equal" do
-      5.sanity_check_max(5).should == 5
+      expect(5.sanity_check_max(5)).to eq(5)
     end
 
     it "returns the number if the number is lower" do
-      5.sanity_check_max(7).should == 5
+      expect(5.sanity_check_max(7)).to eq(5)
     end
   end
 end

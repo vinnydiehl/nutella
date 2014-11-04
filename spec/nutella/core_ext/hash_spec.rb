@@ -11,17 +11,17 @@ describe Hash do
 
   describe "#grab" do
     it "selects the given items from a hash" do
-      hash.slice(:a, :c).should == {a: 1, c: 3}
+      expect(hash.slice(:a, :c)).to eq({a: 1, c: 3})
     end
 
     it "skips items that do not exist in the hash" do
-      hash.slice(:a, :d, :f).should == {a: 1, d: 4}
+      expect(hash.slice(:a, :d, :f)).to eq({a: 1, d: 4})
     end
 
     it "does not modify in place" do
       start = hash
       hash.slice :a, :b
-      hash.should == start
+      expect(hash).to eq(start)
     end
   end
 
@@ -31,11 +31,11 @@ describe Hash do
     end
 
     it "returns the removed pairs" do
-      hash.slice!(:a, :c).should == {b: 2, d: 4}
+      expect(hash.slice!(:a, :c)).to eq({b: 2, d: 4})
     end
 
     it "does not return pairs that did not affect the hash" do
-      hash.slice!(:a, :c, :g).should == {b: 2, d: 4}
+      expect(hash.slice!(:a, :c, :g)).to eq({b: 2, d: 4})
     end
   end
 end

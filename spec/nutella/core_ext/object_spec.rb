@@ -8,44 +8,44 @@ describe Object do
 
   describe "#blank?" do
     it "is blank when nil" do
-      nil.should be_blank
+      expect(nil).to be_blank
     end
 
     it "is blank when false" do
-      false.should be_blank
+      expect(false).to be_blank
     end
 
     it "is not blank when true" do
-      true.should_not be_blank
+      expect(true).not_to be_blank
     end
 
     it "is not blank when numeric" do
-      [0, 1].each { |n| n.should_not be_blank }
+      [0, 1].each { |n| expect(n).not_to be_blank }
     end
 
     context "when a string" do
       it "is blank if the string is empty" do
-        "".should be_blank
+        expect("").to be_blank
       end
 
       it "is blank if only whitespace" do
-        ["  ", "\n  \t"].each { |str| str.should be_blank }
-        "  something here  ".should_not be_blank
+        ["  ", "\n  \t"].each { |str| expect(str).to be_blank }
+        expect("  something here  ").not_to be_blank
       end
 
       it "is not blank if the string has content" do
-        "string".should_not be_blank
+        expect("string").not_to be_blank
       end
     end
 
     context "when a collection" do
       it "is blank if the collection is empty" do
-        [[], {}].each { |collection| collection.should be_blank }
+        [[], {}].each { |collection| expect(collection).to be_blank }
       end
 
       it "is not blank if there are elements in the collection" do
         [[1, 2, 3], { 1 => 2, 3 => 4 }].each do |collection|
-          collection.should_not be_blank
+          expect(collection).not_to be_blank
         end
       end
     end
@@ -53,22 +53,22 @@ describe Object do
 
   describe "#present?" do
     it "is the inverse of #blank?" do
-      [0, 1].each { |n| n.should be_present }
-      [[], {}].each { |collection| collection.should_not be_present }
-      ["", "  "].each { |str| str.should_not be_present }
-      ["str", "  str "].each { |str| str.should be_present }
+      [0, 1].each { |n| expect(n).to be_present }
+      [[], {}].each { |collection| expect(collection).not_to be_present }
+      ["", "  "].each { |str| expect(str).not_to be_present }
+      ["str", "  str "].each { |str| expect(str).to be_present }
     end
   end
 
   describe "#presence" do
     it "returns the object if the object is present" do
-      1.presence.should == 1
-      "str".presence.should == "str"
+      expect(1.presence).to eq(1)
+      expect("str".presence).to eq("str")
     end
 
     it "returns nil if the object is not present" do
-      "".presence.should be_nil
-      false.presence.should be_nil
+      expect("".presence).to be_nil
+      expect(false.presence).to be_nil
     end
   end
 end

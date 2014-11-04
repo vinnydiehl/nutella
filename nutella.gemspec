@@ -20,10 +20,10 @@ Gem::Specification.new do |gem|
   ]
 
   gem.required_ruby_version = "~> 2.0"
-  gem.add_development_dependency "fuubar", "~> 1.1"
+  gem.add_development_dependency "fuubar", "~> 2.0"
   gem.add_development_dependency "rake", "~> 10.0"
   gem.add_development_dependency "redcarpet", "~> 2.2"
   gem.add_development_dependency "rdoc", "~> 3.12"
-  gem.add_development_dependency "rspec", "~> 2.11"
+  gem.add_development_dependency "rspec", "~> 3.1"
   gem.add_development_dependency "yard", "~> 0.8"
 end

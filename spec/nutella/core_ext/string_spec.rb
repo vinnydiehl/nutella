@@ -1,7 +1,7 @@
 require "spec_helper"
 require "nutella/core_ext/string"
 
-describe Enumerable do
+describe String do
   describe "aliases" do
     test_alias String, :contains?, :include?
     test_alias String, :includes?, :include?
@@ -15,11 +15,11 @@ describe Enumerable do
 
   describe "#exclude?" do
     it "returns true if the string does not contain the input string" do
-      "hello".exclude?("test").should be_true
+      expect("hello".exclude?("test")).to be_truthy
     end
 
     it "returns false if the string contains the input string" do
-      "hello".exclude?("llo").should be_false
+      expect("hello".exclude?("llo")).to be_falsey
     end
   end
 
@@ -35,7 +35,7 @@ describe Enumerable do
         Left-aligned again.
       EOS
 
-      test.should == <<EOS
+      expect(test).to eq <<EOS
 This is a test of String#heredoc.
 This text should be left-aligned.
     This text is indented by four spaces.
