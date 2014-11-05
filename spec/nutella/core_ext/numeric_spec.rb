@@ -37,6 +37,60 @@ describe Numeric do
     end
   end
 
+  describe "#to_currency" do
+    context "when used with no options" do
+      it "returns a USD style string with 2 decimals precision" do
+        expect(5.to_currency).to eq("$5.00")
+        expect(5.25.to_currency).to eq("$5.25")
+      end
+
+      it "rounds properly" do
+        expect(5.254.to_currency).to eq("$5.25")
+        expect(5.255.to_currency).to eq("$5.26")
+      end
+
+      it "uses ',' as a thousands separator" do
+        expect(5000.to_currency).to eq("$5,000.00")
+        expect(5e6.to_currency).to eq("$5,000,000.00")
+        expect(5e5.to_currency).to eq("$500,000.00")
+        expect(5e4.to_currency).to eq("$50,000.00")
+      end
+    end
+
+    context "when using pretty mode" do
+      it "strips decimals from whole numbers" do
+        expect(1.to_currency pretty: true).to eq("$1")
+        expect(1.to_currency pretty: true).to eq("$1")
+      end
+
+      it "keeps decimals if there are any cents" do
+        expect(1.01.to_currency pretty: true).to eq("$1.01")
+        expect(1.20.to_currency pretty: true).to eq("$1.20")
+        expect(1.21.to_currency pretty: true).to eq("$1.21")
+      end
+
+      it "only checks cents out to the hundredths" do
+        expect(5.004.to_currency pretty: true).to eq("$5")
+        expect(5.005.to_currency pretty: true).to eq("$5.01")
+      end
+    end
+
+    it "has an adjustable sign" do
+      expect(5.to_currency sign: "£").to eq("£5.00")
+    end
+
+    it "has adjustable unit separator and thousands delimiters" do
+      expect(5.to_currency separator: ",").to eq("$5,00")
+      expect(5e3.to_currency separator: ",", delimiter: ".").to eq("$5.000,00")
+    end
+
+    it "has adjustable sign position" do
+      expect(5000.5.to_currency sign: " €", position: :right,
+                             separator: ",", delimiter: " ").
+        to eq("5 000,50 €")
+    end
+  end
+
   describe "#sanity_check_min" do
     it "returns the parameter if the number is lower" do
       expect(5.sanity_check_min(7)).to eq(7)
