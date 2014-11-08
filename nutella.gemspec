@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
 
   gem.author = "Vinny Diehl"
   gem.email = "vinny.diehl@gmail.com"
-  gem.homepage = "https://github.com/gbchaosmaster/nutella"
+  gem.homepage = "https://github.com/vinnydiehl/nutella"
 
   gem.license = "MIT"
 
